@@ -4,7 +4,7 @@ Train a model remotely using Google Cloud Compute Engine.
 ### With Conda
 Create a conda environment by running
 ```
-conda create --name aidl-session3 python=3.8
+conda create --name aidl-session3 python=3.11
 ```
 Then, activate the environment
 ```
