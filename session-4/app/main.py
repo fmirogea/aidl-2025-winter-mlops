@@ -26,10 +26,13 @@ def _load_model():
 
     global VOCAB, MODEL, NGRAMS, TOKENIZER, MAP_TOKEN2IDX
     VOCAB = checkpoint["vocab"]
-    # TODO load the model. You can get `embed_dim` and `num_class` from the checkpoint. 
+    # TODO load the model. You can get `embed_dim` and `num_class` from the checkpoint.
+    embed_dim = checkpoint["embed_dim"]  # Retrieve embed_dim from checkpoint
+    num_class = checkpoint["num_class"]  # Retrieve num_class from checkpoint
+
     # TODO Then, load the state dict of the model
-    MODEL = ...
-    MODEL...
+    MODEL = SentimentAnalysis(vocab_size=len(VOCAB), embed_dim=embed_dim, num_class=num_class)
+    MODEL.load_state_dict(checkpoint["model_state_dict"])
 
     NGRAMS = checkpoint["ngrams"]
     TOKENIZER = get_tokenizer("basic_english")
